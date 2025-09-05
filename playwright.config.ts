@@ -11,6 +11,7 @@ export default defineConfig({
   use: {
     testIdAttribute: 'data-test',
     baseURL: 'https://www.saucedemo.com/?utm_source=chatgpt.com',
+    storageState: 'state.json',
     trace: 'on-first-retry',
   },
 

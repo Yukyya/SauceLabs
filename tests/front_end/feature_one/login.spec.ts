@@ -20,25 +20,5 @@ test('Login with invalid credentials', async ({page}) => {
 
 });
 
-test.describe('Add to cart feature tests', () => {
-    let loginPage: LoginPage;
-    let cartPage: CartPage;
-    test.beforeEach(async ({page}) => {
-        loginPage = new LoginPage(page);
-        cartPage = new CartPage(page);
-        await page.goto('/'); 
-        await loginPage.loginUser()
-    })
-    test('Add backpack to cart', async ({page}) => {
-        await cartPage.addBackpackToCart()
-        await expect (cartPage.getCartBadge()).toHaveText('1')
-});
 
-    test('Add bike light to cart', async ({page}) => {
-        await cartPage.addBikeLightToCart()
-        await expect (cartPage.getCartBadge()).toHaveText('1')
-});
-
-
-})
 

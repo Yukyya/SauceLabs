@@ -20,15 +20,22 @@ export class CheckoutPage {
     getContinueCheckoutButton = () => this.page.getByTestId('continue')
     getErrorMessage = () => this.page.getByTestId('error')
     getCloseErrorButton = () => this.page.getByTestId('error-button')
+    getFinishCheckoutButton = () => this.page.getByTestId('finish')
+    getThankYouMessage = () => this.page.getByTestId('complete-header').filter({hasText: 'Thank you for your order!'})
 
 
 /////////  ACTIONS //////////   
 
+public async finishCheckout(){
+    await this.getFinishCheckoutButton().click();
+}
+
+
+
 
 public async navigateToCart(){
     await this.getShoppingCartLink().click();
-    await this.page.waitForURL(/cart.html/);
-    
+    await this.page.waitForURL(/cart.html/); 
 }
 
 public async navigateToCheckout(){
@@ -69,9 +76,8 @@ public async checkoutWithoutInfo(){
     await this.getContinueCheckoutButton().click();
     await expect(this.getErrorMessage()).toBeVisible();
     await this.getCloseErrorButton().click();
-
  }
 
-
+ 
 
 }
