@@ -18,7 +18,16 @@ test('Login with invalid credentials', async ({page}) => {
     await expect (loginPage.getErrorMessage()).toContainText('Epic sadface:')
 });
 
+test('Login with locked out user', async ({page}) => {
+    await loginPage.loginLockedOutUser()
+    await expect (loginPage.getErrorMessage()).toContainText('Epic sadface: Sorry, this user has been locked out.')
+});
+
+test('Login with problem user', async ({page}) => {
+    await loginPage.loginProblemUser()
 });
 
 
+
+});
 

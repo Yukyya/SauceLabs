@@ -7,8 +7,9 @@ interface MockTestData {
                 password: string 
                 lockedOutEmail: string
                 problemUser: string
-
-        
+                performanceGlitchUser: string
+                error_user: string
+                visual_user: string
         }}}
 
 
@@ -18,7 +19,11 @@ export const mockTestData: MockTestData = {
       username: 'standard_user',
         password:'secret_sauce',
         lockedOutEmail: 'locked_out_user',
-        problemUser: 'problem_user'
+        problemUser: 'problem_user',
+        performanceGlitchUser: 'performance_glitch_user',
+        error_user: 'error_user',
+        visual_user: 'visual_user'
+
     }}}
 
 

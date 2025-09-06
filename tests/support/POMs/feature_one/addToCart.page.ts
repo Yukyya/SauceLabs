@@ -17,10 +17,13 @@ getSortAtoZOption = () => this.page.getByTestId('product_sort_container').getByR
 getSortZtoAOption = () => this.page.getByTestId('product_sort_container').getByRole('option', {name: 'Name (Z to A)'})
 getSortLowToHighOption = () => this.page.getByTestId('product_sort_container').getByRole('option', {name: 'Price (low to high)'})
 getSortHighToLowOption = () => this.page.getByTestId('product_sort_container').getByRole('option', {name: 'Price (high to low)'})
-
+getSortingOptions = () => this.page.locator('.span.select_container')
 
 /////////  ACTIONS //////////
 
+public async getSortingOptionsCount(){
+    await this.getSortingOptions().count();
+}
 
 public async addBackpackToCart(){
     await this.getBackpackAddToCartButton().click();

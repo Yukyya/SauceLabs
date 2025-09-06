@@ -1,13 +1,15 @@
 import { test, expect } from '@playwright/test';
 import { BurgerMenu as BurgerMenuPage } from '../../support/POMs/feature_one/burgerMenu.page';
-
+import { CartPage } from '../../support/POMs/feature_one/addToCart.page';
 
 test.describe('Burger Menu Options', () => {
   let burgerMenu: BurgerMenuPage;
+  let cart: CartPage;
 
   test.beforeEach(async ({ page, }) => {
     await page.goto('/inventory.html');
     burgerMenu = new BurgerMenuPage(page);
+    cart = new CartPage(page);
   });
 
   test('should open burger menu', async ({ page }) => {
@@ -37,7 +39,10 @@ test.describe('Burger Menu Options', () => {
   });
 
   test('should reset app state', async ({ page }) => {
+    await addToCartPage.addBackpackToCart();
     await burgerMenu.clickSidebarLink('reset');
+    await expect(addToCartPage.getCartBadge()).not.toBeVisible();
+  
     
     
   });

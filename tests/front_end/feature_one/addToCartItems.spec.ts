@@ -18,5 +18,12 @@ test.describe('Add to cart feature tests', () => {
         await expect (cartPage.getCartBadge()).toHaveText('1')
 });
 
+    test('Add multiple items to cart', async ({page}) => {
+        await cartPage.addBackpackToCart()
+        await cartPage.addBikeLightToCart()
+        await expect (cartPage.getCartBadge()).toHaveText('2')
+
+    });    
+
 
 })
